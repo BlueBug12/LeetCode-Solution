@@ -12,7 +12,6 @@ public:
                     max=sub.size();
                 sub=sub.substr(sub.find(s.at(i))+1);
                 sub.push_back(s.at(i));
-                
             }
         }
         if(sub.size()>max){max=sub.size();}
