@@ -3,7 +3,6 @@ public:
     int reverse(int x) {
         string s=to_string(x);
         int index=s.size();
-       
         for(int i=s.size()-1;i>=0;--i){
             if(s.at(i)!='0'){index=i+1;break;}
         }
