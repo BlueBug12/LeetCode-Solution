@@ -28,4 +28,4 @@ public:
     }
 };
 
-//use recursive call may faster
+//use recursive call may be faster
