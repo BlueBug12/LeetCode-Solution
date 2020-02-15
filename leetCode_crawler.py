@@ -4,11 +4,13 @@ import json
 import time
 import os
 import sys
+import argparse
 import logging
 from pathlib import Path
 from selenium import webdriver
 from lxml import etree
 from selenium.common.exceptions import NoSuchElementException
+
 HEADERS = {
     'Accept': '*/*',
     'Accept-Encoding': 'gzip,deflate,sdch',
@@ -33,6 +35,7 @@ class LeetCode_crawler:
 		options = webdriver.ChromeOptions()
 		options.add_argument('--headless')
 		options.add_argument('--disable-gpu')
+		self.url=url
 		if(test):
 			driver = webdriver.Chrome()
 		else:
@@ -63,8 +66,7 @@ class LeetCode_crawler:
 					counter=1
 				time.sleep(2)
 				continue
-			
-			
+
 		driver.close()
 
 	def MD_writer(self,path):
@@ -80,6 +82,7 @@ class LeetCode_crawler:
 		fp.write(self.example+"\n")
 		fp.write("```\n\n## Solution\n")
 		fp.write("```text\n\n```\n\n")
+		fp.write("_**Time complexity: O()**_\n\n")
 		fp.write("## Summary\n")
 		fp.close()
 		
@@ -91,18 +94,39 @@ class LeetCode_crawler:
 		sub+=s
 		sub=sub.replace('.','_')
 		return sub
-		
-		
+
 if __name__ == '__main__':
+	parser = argparse.ArgumentParser()
+	parser.add_argument('url', type=str, help='url of the LeetCode problem')
+	
+	parser.add_argument('-f','--file',action='store_true', help='creat a file (default: #[number]_[problem name])',default="")
+	parser.add_argument('-v','--version', action='version', version='LeetCode_crawler 1.0')
+	#parser.add_argument('-c','--code', help='crawl the code')
+	parser.add_argument('-md','--MDwriter',action='store_true',help="generate a README.md prototype.")
+	
+	if len(sys.argv) > 1:
+		args = parser.parse_args()
+	else:
+		parser.print_help()
+		sys.exit(1)
+	argsDict = vars(args)
 	crawler=LeetCode_crawler(HEADERS)
-	crawler.crawler("https://leetcode.com/problems/permutations/")
-	try:
-		os.mkdir(crawler.short_title())
-	except FileExistsError:
-		print("\"",crawler.short_title(),"\" has existed")
-		
-	path=os.path.join(os.getcwd(),crawler.short_title(),"README.md")
-	crawler.MD_writer(path.replace('\\','/'))
+	crawler.crawler(argsDict.get('url'))
+	path=os.getcwd()
+	
+	if(argsDict.get('file')):
+		filename=crawler.short_title()
+		try:
+			os.mkdir(filename)
+		except FileExistsError:
+			print("\"",crawler.short_title(),"\" has existed")
+		finally:
+			pass
+		path=os.path.join(os.getcwd(),filename)
+	
+	if(argsDict.get('MDwriter')):
+		path=os.path.join(path,"README.md")
+		crawler.MD_writer(path.replace('\\','/'))
 
 
 #https://github.com/HUANGXUANKUN/leetcode-summary-generator
