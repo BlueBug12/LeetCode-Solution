@@ -18,5 +18,5 @@ optional arguments:
 
 
 ## Reference
-* [gcyml](https://github.com/gcyml/leetcode-crawler/blob/master/readme.md)
+* [gcyml](https://github.com/gcyml/leetcode-crawler)
 * [HUANGXUANKUN](https://github.com/HUANGXUANKUN/leetcode-summary-generator)

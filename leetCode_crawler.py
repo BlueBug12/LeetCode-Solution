@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
 import requests
-import json
 import time
 import os
 import sys
 import argparse
-import logging
 from pathlib import Path
 from selenium import webdriver
-from lxml import etree
 from selenium.common.exceptions import NoSuchElementException
 
 HEADERS = {
@@ -35,11 +32,12 @@ class LeetCode_crawler:
 		options = webdriver.ChromeOptions()
 		options.add_argument('--headless')
 		options.add_argument('--disable-gpu')
+		driverpath = "./init/driver/chromedriver.exe"
 		self.url=url
 		if(test):
-			driver = webdriver.Chrome()
+			driver = webdriver.Chrome(executable_path=driverpath)
 		else:
-			driver = webdriver.Chrome(chrome_options=options)
+			driver = webdriver.Chrome(chrome_options=options,executable_path=driverpath)
 		
 		driver.get(url)
 		time.sleep(3)
