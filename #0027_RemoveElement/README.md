@@ -15,6 +15,23 @@ It doesn't matter what you leave beyond the returned length.
 ## Solution
 An intuitive way is using _erase_ function, traverse whole vector, and dynamically change the size of the vector.</br>
 Another solution is using the same idea of [_unique_](https://en.cppreference.com/w/cpp/algorithm/unique) function.
+Here is the possible implementation:
+```c++
+template<class ForwardIt>
+ForwardIt unique(ForwardIt first, ForwardIt last)
+{
+    if (first == last)
+        return last;
+
+    ForwardIt result = first;
+    while (++first != last) {
+        if (!(*result == *first) && ++result != first) {
+            *result = std::move(*first);
+        }
+    }
+    return ++result;
+}
+```
 
 _**Time complexity: O(N)**_
 
