@@ -14,7 +14,7 @@ There are two ways that I figure out.
 1. **Solution 1**: </br>
 Using the function [_lower_bound_](https://en.cppreference.com/w/cpp/algorithm/lower_bound) and [_upper_bound_](https://en.cppreference.com/w/cpp/algorithm/upper_bound) which are defined in \<algorithm\>.
 The code below is the opssible implementation of _lower_bound_ :
->```c++
+```c++
 template<class ForwardIt, class T>
 ForwardIt lower_bound(ForwardIt first, ForwardIt last, const T& value)
 {
