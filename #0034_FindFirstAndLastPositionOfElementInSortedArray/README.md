@@ -46,4 +46,4 @@ Using binary search to find any position of the target. Once we find the target,
 >_**Time complexity: O(N)**_
 
 ## Summary
-Though it looks like the first solution is faster than the second, the second performe faster in fact. In my point, most of the input data are very small, so the advantage the solution 1 is not present well. And another factor is the length of duplicated target. If there are few target values, the linear expanding time doesn't dominate the time complexity. Which method is better depends on the characteristics of input data.
+Though it looks like the first solution is faster than the second, the second performe faster in fact. In my point, most of the input data are very small, so the advantage the solution 1 is not present well. And another factor is the length of duplicated target values. If there are few target values, the linear expanding time doesn't dominate the time complexity. Which method is better depends on the characteristics of input data.
