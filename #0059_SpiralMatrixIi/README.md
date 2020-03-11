@@ -61,7 +61,7 @@ for(int i=0;i<n;++i){
     ans.push_back(move(v));
 }
 ```
-But this way is much faster and cleaner:
+But this way is faster and cleaner:
 ```c++
 vector<vector<int>>ans(n,vector<int>(n,0));
 ```
