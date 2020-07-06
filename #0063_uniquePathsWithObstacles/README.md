@@ -31,12 +31,14 @@ There are two ways to reach the bottom-right corner:
 ```
 
 ## Solution
-Image there is a wavefront starting from the origin (top-left point), it will propagate to the bottom-right end point. Every point on the wavefront has its `path number`, which record the max number of paths that the origin can arrive this point. And the value of each `path number` can be calculated by the sum of the it's top grid's `path number` and it's left grid's `path number`. Just see the example bellow;
-| 0 	| 0 	| 0 	| 0 	|
-|-	|-	|-	|-	|
-| 0 	| x 	| 0 	| 0 	|
-| x 	| 0 	| 0 	| x 	|
-| 0 	| 0 	| 0 	| 0 	|
+Image there is a wavefront starting from the origin (top-left point), it will propagate to the bottom-right end point. Every point on the wavefront has its `path number`, which record the max number of paths that the origin can arrive this point. And the value of each `path number` can be calculated by the sum of the it's top grid's `path number` and it's left grid's `path number`. Just see the example bellow:
+
+  | 0 	| 0 	| 0 	| 0 	|
+  |-	|-	|-	|-	|
+  | 0 	| x 	| 0 	| 0 	|
+  | x 	| 0 	| 0 	| x 	|
+  | 0 	| 0 	| 0 	| 0 	|
+
 First we need to initialize all the `path number` in the first column and the first row, whose value should ba eithor `1` or `0`.
 * Initialize first row:
 
