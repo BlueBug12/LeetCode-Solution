@@ -13,8 +13,8 @@ optional arguments:
   -h, --help       show this help message and exit
   -f, --file       creat a file (default: #[number]_[problem name])
   -v, --version    show program's version number and exit
-  -md, --MDwriter  generate a README.md prototype.
 ```
+* You need to check the version of the [chromedriver](https://chromedriver.chromium.org/downloads) matches your chorme browser.
 
 
 ## Reference
