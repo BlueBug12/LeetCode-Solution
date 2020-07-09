@@ -61,6 +61,7 @@ class LeetCode_crawler:
 		fp.write("## Summary\n")
 		fp.close()
 		self.driver.close()
+		print("Create READE.md of "+self.title+" successfully.")
 
 	def short_title(self):
 		s=''.join(self.title.title().split())
@@ -69,6 +70,7 @@ class LeetCode_crawler:
 			sub+='0'
 		sub+=s
 		sub=sub.replace('.','_')
+		
 		return sub
 
 if __name__ == '__main__':
@@ -76,7 +78,7 @@ if __name__ == '__main__':
 	parser.add_argument('url', type=str, help='url of the LeetCode problem')
 
 	parser.add_argument('-f','--folder',action='store_true', help='creat a file (default: #[number]_[problem name])',default="")
-	parser.add_argument('-v','--version', action='version', version='LeetCode_crawler 2.0')
+	parser.add_argument('-v','--version', action='version', version='LeetCode_crawler 2.1')
 	#parser.add_argument('-c','--code', help='crawl the code')
 	#parser.add_argument('-md','--MDwriter',action='store_true',help="generate a README.md prototype.")
 
@@ -93,8 +95,9 @@ if __name__ == '__main__':
 		filename=crawler.short_title()
 		try:
 			os.mkdir(filename)
+			print("Build folder "+crawler.short_title()+" successfully.")
 		except FileExistsError:
-			print("\"",crawler.short_title(),"\" has existed")
+			print("\"",crawler.short_title(),"\" has existed.")
 		finally:
 			pass
 		path=os.path.join(os.getcwd(),filename)
