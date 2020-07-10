@@ -36,7 +36,7 @@ This is an interesting question. There are mainly three ways to solve it.
     * Fast and easy to implement.
 
 Let me simply explain how Newton-Raphson method works, please see the figure below:
-![Newton-Raphson](./img/Newton-Raphson.PNG)
+![Newton-Raphson](./img/Newton-Raphson.png)
 
 The key idea is `tangent line`. Each tangent line lead us to relocate a more precise. Let's see an example.
 If we want to find the square root of _a_, then we can define a function :
