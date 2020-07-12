@@ -51,10 +51,9 @@
 </div></div>
 
 ## Solution
-```text
+This question is simple but annoying. We need to split the character `'/'` to get the name of directory, also need to jump to the outer directory if necessary. So I make a stack to record the previous length of the result string each time the new directory is added to it.  When we receive th `..` operator, pop the top of stack to get the previous length of result string, so we can resize the result string by it.
 
-```
-
-_**Time complexity: O()**_
+_**Time complexity: O(n)**_
 
 ## Summary
+There is too many `if/else` statements in my solution, which reduce the efficiency and readability of the program.
