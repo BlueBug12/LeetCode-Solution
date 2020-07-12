@@ -10,9 +10,12 @@ positional arguments:
   url              url of the LeetCode problem
 
 optional arguments:
-  -h, --help       show this help message and exit
-  -f, --file       creat a file (default: #[number]_[problem name])
-  -v, --version    show program's version number and exit
+-h, --help            show this help message and exit
+-f [FOLDER], --folder [FOLDER]
+                      creat a file (default: #[number]_[problem name])
+-c CODE, --code CODE  creat the empty code file
+-v, --version         show program's version number and exit
+
 ```
 * You need to check the version of the [chromedriver](https://chromedriver.chromium.org/downloads) matches your chorme browser.
 
