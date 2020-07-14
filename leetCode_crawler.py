@@ -61,9 +61,9 @@ class LeetCode_crawler:
 		fp.write("## Summary\n")
 		fp.close()
 		self.driver.close()
-		
 
-	def short_title(self):
+
+	def folder_title(self):
 		s=''.join(self.title.title().split())
 		sub='#'
 		for i in range(4-s.find('.')):
@@ -73,13 +73,16 @@ class LeetCode_crawler:
 
 		return sub
 
+	def short_title(self):
+		return self.title;
+
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
 	parser.add_argument('url', type=str, help='url of the LeetCode problem')
 
 	parser.add_argument('-f','--folder',nargs='?', help='creat a file (default: #[number]_[problem name])',default=".")
 	parser.add_argument('-c','--code', help='creat the empty code file')
-	parser.add_argument('-v','--version', action='version', version='LeetCode_crawler 2.2')
+	parser.add_argument('-v','--version', action='version', version='LeetCode_crawler 2.3')
 	#parser.add_argument('-md','--MDwriter',action='store_true',help="generate a README.md prototype.")
 	filename=""
 	if len(sys.argv) > 1:
@@ -93,28 +96,28 @@ if __name__ == '__main__':
 
 	if(argsDict.get('folder')!='.'):
 		if(argsDict.get('folder')==None):
-			filename=crawler.short_title()
+			filename=crawler.folder_title()
 		else:
 			filename=argsDict.get('folder')
 		try:
 			os.mkdir(filename)
 			print("Build folder "+filename+" successfully.")
-			
+
 		except FileExistsError:
 			print("\"",filename,"\" has existed.")
 		finally:
 			pass
 		path=os.path.join(os.getcwd(),filename)
 		if(argsDict.get('code')):
-				fp = open(os.path.join(path,crawler.short_title()+'.'+argsDict.get('code')), "w")
+				fp = open(os.path.join(path,argsDict.get('code')), "w")
 				fp.close()
-				print("Creat file "+crawler.short_title()+'.'+argsDict.get('code')+" successfully.")
+				print("Creat file "+argsDict.get('code')+" successfully.")
 	else:
 		path=os.getcwd()
 		if(argsDict.get('code')):
-				fp = open(os.path.join(path,crawler.short_title()+'.'+argsDict.get('code')), "w")
+				fp = open(os.path.join(path,argsDict.get('code')), "w")
 				fp.close()
-				print("Creat file "+crawler.short_title()+'.'+argsDict.get('code')+" successfully.")
+				print("Creat file "+argsDict.get('code')+" successfully.")
 	path=os.path.join(path,"README.md")
 	crawler.MD_writer(path.replace('\\','/'))
 	print("Create READE.md of "+filename+" successfully.")
