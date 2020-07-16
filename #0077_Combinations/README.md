@@ -22,7 +22,7 @@
 ## Solution
 I use recursion to find all the combinations. Just see the tree diagram below:
 
-![tree](./img/tree.)
+![tree](./img/tree.jpg)
 * It's a example of n=5, k=3, and the starting value is `1`.
 
 Each child node has a value that is not greater than it's parent node's. If the length of path from root to leaf is equal to `k`, it's a valid combination. Notice that if **n - current node value is less than k - current node height**, it is impossible for this path to generate the valid combination, so we use this heuristic to avoid wasting time.
