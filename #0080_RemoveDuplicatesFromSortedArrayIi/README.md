@@ -43,7 +43,7 @@ for (int i = 0; i &lt; len; i++) {
 </div></div>
 
 ## Solution
-We need two variables; one to record the current number, the other to count the repeat times. Use these variables to pass the vector. If the repeat times of the number are more than twice, than erase the elementt, and not to move the iterator forward.
+We need only one variables to count the repeat times of the number,then pass the vector. If the repeat times of the number are more than twice, erase the elementt, and not to move the iterator forward.
 
 _**Time complexity: O(n)**_
 
