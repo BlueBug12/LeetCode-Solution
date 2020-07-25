@@ -48,14 +48,16 @@ I wrote down the gray code sequence from n=0 to n=3, and I found some regular pa
 
 * n = 2:
     |00|leading 0 plus 0|
-    |- |-|
+    |---|---------------|
     |01|leading 0 plus 1|
     |11|leading 1 plus 1|
     |10|leading 1 plus 0|
-    We can split it into twp part: n=1 with leading 0 and n=1 with leading 1. Notice that the second one is in reverse order of n=1.Let's see the case n=3 to get the more clear idea.
+
+We can split it into twp part: n=1 with leading 0 and n=1 with leading 1. Notice that the second one is in reverse order of n=1.Let's see the case n=3 to get the more clear idea.
+
 * n = 3:
     |000|leading 0 plus 00|
-    |-|-|
+    |---|-----------------|
     |001|leading 0 plus 01|
     |011|leading 0 plus 11|
     |010|leading 0 plus 10|
@@ -63,7 +65,8 @@ I wrote down the gray code sequence from n=0 to n=3, and I found some regular pa
     |111|leading 1 plus 11|
     |101|leading 1 plus 01|
     |100|leading 1 plus 00|
-    You may find that this is a recursive form. The size of the vector is twice bigger than the previous one. It contains leading 0 wiht n-1 case and leading 1 with reverse n-1 case.
+
+You may find that this is a recursive form. The size of the vector is twice bigger than the previous one. It contains leading 0 wiht n-1 case and leading 1 with reverse n-1 case.
 
 _**Time complexity: O(2^n)**_
 
