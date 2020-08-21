@@ -62,6 +62,7 @@ _**Time complexity: O(n^2)**_
 ## Summary
 Actually, this problem can be solved in _**O(n)**_ time complexity. Because the Pascal's triangle is based on the binomial theorem.
 ![img](pascal.gif).
+
 As a result, we can directly calculate the combination at each term. But it may easily cause overflow, so we need `long` type variable to store it.
 ```c++
 vector<int> getRow(int rowIndex) {
