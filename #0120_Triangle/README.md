@@ -22,10 +22,21 @@
 </div></div>
 
 ## Solution
-```text
+It is another good example to apply _dynamic programming_. Please see the four steps analysis of it below:
 
-```
+1. Optimal Fubstructure:
+If a path from the root node `A0` to the leaf node `An` has the minimum path sum, then the sub-path from any node(`A1`~`An-1`) in this path to `An` also has the minimum path sum.
 
-_**Time complexity: O()**_
+2. Recursive Formulation:
+    ``` m[i] = min(m[i],m[i+1])+triangle[layer][i]```
+
+3. Compute Optimal Value:
+Pick the minimum path sum value in two sub-tree plus the value of the current node, then we get the optimal path sum of it.
+
+4. Construct an Optimal Solution:
+Calculate the optimal solution in each layer from bottom to top. When we finish the calculation of the top level, the value of m[0] is the final optimal solution.
+
+_**Time complexity: O(n^2)**_
 
 ## Summary
+The code of the `DP` solution always seems clean and clever, but it is not as easy as I think. It needs a lot of practices to be familiar with this advanced method.
