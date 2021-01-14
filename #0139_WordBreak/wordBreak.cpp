@@ -11,6 +11,7 @@ public:
                 }
             }
         }
+        delete [] dp;
         return dp[s.size()];
     }
 };
