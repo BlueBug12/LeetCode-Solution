@@ -33,7 +33,7 @@
 It is a classical problem in graph algorithm. The `critical connection` in this problem is actually called `articulation edge` or `bridge`.  The graph would be disconnected iff the bridge is removed.
 The key idea is "whether or not we can go back to the previous node from the other path". If yes, then this edge is not a `bridge` because we can still traverse the whole graph without this edge. We need two array `depth` and `up` to help record the information. `depth` is the sequence of the traversing, and `up` presents the highest(most previous) node that the current node can reach. Then we start the **DFS**(_depth first search_). Every time we encounter an unvisited node, we update its `up` and `depth` value. If any `up` value of its child node is lower, assign this value to the current `up`, which means that there exists a back edge. Finally, when any `up` value of the child node is greater then the `depth` value of the current one, that is a `bridge` because there is no other path that can replace this edge.
 
-_**Time complexity: O(edge_number*vertex_number)**_
+_**Time complexity: O(E+V)**_
 
 ## Summary
 Another similiar problem is to find the `articulation node` of the graph, and the solution is also similiar. Next time I'll try it.
