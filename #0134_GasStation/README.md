@@ -48,10 +48,10 @@ Therefore, you can't travel around the circuit once no matter where you start.
 </div></div>
 
 ## Solution
-```text
+I split the problem into two parts. The first is the least amount of gas that can make the car travel from `station 0` to `station i`, where `0 <= i < n`. The second is the rest of gas after traveling from `station j` to `station n-1`, where `0 <= j < n`. If the sum of these two matching part(`i = j`) is no less than 0, then the solution exists. It means that the rest of the gas can make the car travel around the circuit.
+These method would pass the whole array twice, in the forward and backward direction. And it also requires _**O(n)**_ space to record the information.
 
-```
-
-_**Time complexity: O()**_
+_**Time complexity: O(n)**_
 
 ## Summary
+In fact, there is a much cleaner [solution](https://leetcode.com/problems/gas-station/discuss/42568/Share-some-of-my-ideas.) that only need to pass the array once without additional space. It's absolutely a better solution.
