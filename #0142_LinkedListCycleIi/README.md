@@ -47,6 +47,7 @@
 We still need two pointers `fast` and `slow` like the [previous problem](https://github.com/BlueBug12/LeetCode-Solution/tree/master/%230141_LinkedListCycle).
 
 To illustrate the idea, I'll define some relationship:
+
 ![picture](./picture.PNG)
 * point a: the head of linked list
 * point b: where the cycle begins
@@ -73,4 +74,4 @@ _**Space complexity: O(1)**_
 _**Time complexity: O(n)**_
 
 ## Summary
-The idea behind this solution is not difficult, but it is hard to explain. Drawing some examples by yourself you'll know what's the trick. 
+The idea behind this solution is not difficult, but it is hard to explain. Drawing some examples by yourself you'll know what's the trick.
